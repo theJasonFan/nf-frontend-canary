@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "nf-frontend-canary samplesheet",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "sample": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9_-]+$",
+        "errorMessage": "Sample name must hold only letters, digits, hyphens, and underscores."
+      },
+      "greeting": {
+        "type": "string",
+        "minLength": 1,
+        "errorMessage": "Greeting must not be empty."
+      }
+    },
+    "required": ["sample", "greeting"]
+  },
+  "uniqueEntries": ["sample"]
+}

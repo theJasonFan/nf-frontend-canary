@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "nf-frontend-canary parameters",
+  "type": "object",
+  "$defs": {
+    "input_output_options": {
+      "title": "Input and output",
+      "type": "object",
+      "required": ["input", "outdir"],
+      "properties": {
+        "input": {
+          "type": "string",
+          "format": "file-path",
+          "pattern": "^\\S+\\.(csv|tsv)$",
+          "schema": "assets/schema_input.json",
+          "description": "Samplesheet, one row per sample."
+        },
+        "outdir": {
+          "type": "string",
+          "format": "directory-path",
+          "description": "Folder that receives the results."
+        }
+      }
+    },
+    "test_options": {
+      "title": "Test options",
+      "type": "object",
+      "properties": {
+        "fail": {
+          "type": "boolean",
+          "default": false,
+          "description": "Make the run fail on purpose."
+        }
+      }
+    }
+  },
+  "allOf": [
+    { "$ref": "#/$defs/input_output_options" },
+    { "$ref": "#/$defs/test_options" }
+  ]
+}

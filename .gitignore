@@ -1,0 +1,4 @@
+!justfile
+work/
+.nextflow*
+results/
